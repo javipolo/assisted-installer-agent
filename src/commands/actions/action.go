@@ -53,6 +53,7 @@ func New(agentConfig *config.AgentConfig, stepType models.StepType, args []strin
 		models.StepTypeFreeNetworkAddresses:       {&freeAddresses{args: args, agentConfig: agentConfig}},
 		models.StepTypeNtpSynchronizer:            {&ntpSynchronizer{args: args, agentConfig: agentConfig}},
 		models.StepTypeInstallationDiskSpeedCheck: {&diskPerfCheck{args: args, agentConfig: agentConfig}},
+		models.StepTypeInstallationDiskCleanup   : {&diskCleanup{args: args, agentConfig: agentConfig}},
 		models.StepTypeAPIVipConnectivityCheck:    {&apiVipConnectivityCheck{args: args}},
 		models.StepTypeTangConnectivityCheck:      {&tangConnectivityCheck{args: args}},
 		models.StepTypeDhcpLeaseAllocate:          {&dhcpLeases{args: args}},

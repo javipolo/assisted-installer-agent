@@ -21,6 +21,7 @@ RUN dnf install --setopt=install_weak_deps=False --setopt=tsdocs=False -y \
 		podman \
 		# inventory
 		dmidecode ipmitool file fio \
+		lvm2 mdadm \
 		smartmontools \
 		sg3_utils \
 		# free_addresses
@@ -39,5 +40,6 @@ COPY --from=builder /go/src/github.com/openshift/assisted-installer-agent/build/
 COPY --from=builder /go/src/github.com/openshift/assisted-installer-agent/build/logs_sender /usr/bin/logs_sender
 COPY --from=builder /go/src/github.com/openshift/assisted-installer-agent/build/next_step_runner /usr/bin/next_step_runner
 COPY --from=builder /go/src/github.com/openshift/assisted-installer-agent/build/disk_speed_check /usr/bin/disk_speed_check
+COPY --from=builder /go/src/github.com/openshift/assisted-installer-agent/build/disk_cleanup /usr/bin/disk_cleanup
 
 COPY scripts/installer/* /usr/local/bin/
